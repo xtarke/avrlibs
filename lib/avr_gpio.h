@@ -9,6 +9,7 @@
 #ifndef LIB_AVR_GPIO_H_
 #define LIB_AVR_GPIO_H_
 
+#include <avr/io.h>
 #include <stdint.h>
 
 #ifndef _IO

@@ -14,6 +14,9 @@
 
 #ifndef _IO
 #define _IO volatile uint8_t
+#endif
+
+#ifndef _IO16
 #define _IO16 volatile uint16_t
 #endif
 
@@ -68,8 +71,6 @@ typedef struct {
 		} BITS;
 	} TC2;
 }TIMERS_IRQ_Type;
-
-
 
 #define TIMER_0 ((TIMER8_Type *) &TCCR0A)
 #define TIMER_1 ((TIMER16_Type *) &TCCR1A)
