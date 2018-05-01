@@ -18,7 +18,7 @@ int main(){
 	GPIO_C->PORT = 0xFE;
 
 	/* Ref interna de 1V1, Canal 0 */
-	ADCS->AD_MUX = SET(REFS0) | SET(REFS0);
+	ADCS->AD_MUX = SET(REFS0) | SET(REFS1);
 	/* Habilita AD:
 	 * Conversão contínua
 	 * IRQ
