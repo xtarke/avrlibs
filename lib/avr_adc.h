@@ -1,8 +1,9 @@
 /*
- * avr_adc.h
+ * avr_gpio.h
  *
- *  Created on: Apr 24, 2018
- *      Author: xtarke
+ *  Created on: April 24, 2018
+ *      Author: Renan Augusto Starke
+ *      Instituto Federal de Santa Catarina
  */
 
 #ifndef LIB_AVR_ADC_H_
