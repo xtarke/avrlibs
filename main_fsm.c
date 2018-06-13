@@ -70,11 +70,39 @@ ISR(TIMER0_OVF_vect)
 {
 	static uint8_t i = 0;
 
-	/* Dummy state transition */
-	if (i==255){
-		curr_state++;
-		if (curr_state == NUM_STATES)
-			curr_state = STATE_A;
+	/* Dummy sync state transition */
+	switch (curr_state) {
+		case STATE_A:
+			if (i > 10){
+				i = 0;
+				curr_state = STATE_C;
+			}
+
+			break;
+
+		case STATE_B:
+			if (i > 50){
+				i = 0;
+				curr_state = STATE_D;
+			}
+			break;
+
+		case STATE_C:
+			if (i > 50){
+				i = 0;
+				curr_state = STATE_B;
+			}
+			break;
+
+		case STATE_D:
+			if (i > 50){
+				i = 0;
+				curr_state = STATE_A;
+			}
+			break;
+
+		default:
+			break;
 	}
 
 	i++;
