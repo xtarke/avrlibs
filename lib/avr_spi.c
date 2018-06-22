@@ -28,7 +28,7 @@ void SPI_MasterInit(void)
 
 	/* Ativa SPI em modo mestre
 	 * clock = F_CPU / 16  */
-	SPI->SP_CR.MASK = SET(SPE) | SET(MSTR) | SET(SPR0) | SET(CPHA);
+	SPI->SP_CR.MASK = SET(SPE) | SET(MSTR) | SET(SPR0)  | SET(DORD);
 	/* Diretamente:
 	SPCR = (1 << SPE)|(1 << MSTR)|(1 << SPR0); */
 }

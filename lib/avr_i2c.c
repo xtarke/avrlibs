@@ -39,7 +39,7 @@ void i2c_init(){
 	TWSR |= 0x01;							//prescaler =  4;
 	TWCR = (1<<TWINT)|(1<<TWEN)|(1<<TWIE);	//habilita o TWI e a interrupção
 
-	set_bit(PORTD,1);
+	SET_BIT(PORTD,1);
 
 	memset((void *)&i2c_status, 0, sizeof(i2c_status));
 }
@@ -88,9 +88,6 @@ uint8_t i2c_read(uint8_t addr, uint8_t i2c_addr)
 
 ISR(TWI_vect)//Rotina de interrupção da TWI
 {
-
-	cpl_bit(PORTD,0);
-
 	static uint8_t write_done;
 
 	switch (TWSR & 0xF8)	//lê o código de resultado da TWI e executa a próxima ação

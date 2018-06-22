@@ -44,7 +44,7 @@ fsm_t myFSM[] = {
 };
 
 /* Estado atual */
-state_t curr_state = STATE_A;
+volatile state_t curr_state = STATE_A;
 
 int main(){
 

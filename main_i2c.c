@@ -12,8 +12,6 @@
 #include "bits.h"
 #include "avr_i2c.h"
 
-#define SS PB2
-
 // definido pela NXP (olhar no datasheet)
 #define RTC_ADDR 0xD0
 
