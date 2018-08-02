@@ -36,7 +36,7 @@ volatile struct i2c i2c_status;
 void i2c_init(){
 	//Ajuste da frequência de trabalho - SCL = F_CPU/(16+2.TWBR.Prescaler)
 	TWBR = 18;
-	TWSR |= 0x01;							//prescaler =  4;
+	TWSR |= 0x01;							//prescaler =  16;
 	TWCR = (1<<TWINT)|(1<<TWEN)|(1<<TWIE);	//habilita o TWI e a interrupção
 
 	SET_BIT(PORTD,1);
@@ -59,7 +59,7 @@ void i2c_write(uint8_t addr, uint8_t data, uint8_t i2c_addr){
 	//TWCR |= (1<<TWSTA);
 
 	i2c_status.step = 1;
-	i2c_status.errors = 0xff;
+	i2c_status.errors = 0x0a;
 
 	while (i2c_status.done == 0);
 
@@ -95,7 +95,12 @@ ISR(TWI_vect)//Rotina de interrupção da TWI
 		/*LEITURA E ESCRITA
 		PASSO 2 <start condition transmitted>. Passo (1) concluído, executa passo (2)*/
 		case (TW_START):
-			TWDR = i2c_status.device_addr;			//envia endereço do dispositivo e o bit de escrita
+
+			if (i2c_status.w_r_flag)
+				TWDR = i2c_status.device_addr | 0x01;			//envia endereço do dispositivo e o bit de escrita
+			else
+				TWDR = i2c_status.device_addr;
+
 			CLR_START_BIT();		//limpa o start bit
 			i2c_status.step = 2;
 			break;
