@@ -20,24 +20,11 @@
 	#define _IO16 volatile uint16_t
 #endif
 
-typedef enum
-{	GPIO_IN = 0x00,
-	GPIO_OUT = 0x01,
-} GPIOMode_t;
-
 typedef struct
 {
-  uint8_t GPIO_Pins;            /*!< Specifies the GPIO pins to be configured. */
-  GPIOMode_t GPIO_Mode;    		/*!< Specifies the operating mode for the selected pins. */
-  GPIOMode_t GPIO_Pullups;		/*!< Specifies the pull ups for the selected pins. */
-
-} GPIO_Init_t;
-
-typedef struct
-{
-  _IO PIN;
-  _IO DDR;
-  _IO PORT;
+  _IO PIN;		/*!< Read the current state of a INPUT port. */
+  _IO DDR;		/*!< Specifies the operating mode for the selected pins. */
+  _IO PORT;		/*!< Specifies the pull ups or output state of a OUPUT port.. */
 } GPIOx_Type;
 
 #define GPIO_B ((GPIOx_Type *) &PINB)
@@ -48,8 +35,6 @@ typedef struct
 #define GPIO_ClrBit(GPIO_x, bit) (GPIO_x->PORT &= ~(1<<bit))
 #define GPIO_CplBit(GPIO_x, bit) (GPIO_x->PORT ^= (1<<bit))
 #define GPIO_TstlBit(GPIO_x, bit) (GPIO_x->PORT y&(1<<bit))
-
-void GPIO_Init(GPIOx_Type *GPIO_x,  GPIO_Init_t*  InitStruct);
 
 #endif /* LIB_AVR_GPIO_H_ */
 
