@@ -34,7 +34,8 @@ typedef struct
 #define GPIO_SetBit(GPIO_x, bit) (GPIO_x->PORT |= (1<<bit))
 #define GPIO_ClrBit(GPIO_x, bit) (GPIO_x->PORT &= ~(1<<bit))
 #define GPIO_CplBit(GPIO_x, bit) (GPIO_x->PORT ^= (1<<bit))
-#define GPIO_TstlBit(GPIO_x, bit) (GPIO_x->PORT y&(1<<bit))
+#define GPIO_PortTstBit(GPIO_x, bit) (GPIO_x->PORT y&(1<<bit))
+#define GPIO_PinTstBit(GPIO_x, bit) (GPIO_x->PIN y&(1<<bit))
 
 #endif /* LIB_AVR_GPIO_H_ */
 
