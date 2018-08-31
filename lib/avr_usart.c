@@ -5,6 +5,7 @@
  *      Author: Renan Augusto Starke
  *      Instituto Federal de Santa Catarina
  */
+
 #include <stdio.h>
 #include <avr/interrupt.h>
 #include "avr_usart.h"
