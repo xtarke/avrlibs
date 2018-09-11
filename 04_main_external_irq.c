@@ -31,11 +31,11 @@ ISR(INT1_vect)
 /* PCINT deve-se testar qual pino gerou a IRQ */
 ISR(PCINT1_vect)
 {
-	if(!tst_bit(PINC,PC0))
+	if(!TST_BIT(PINC,PC0))
 		led = 2;
-	else if(!tst_bit(PINC,PC1))
+	else if(!TST_BIT(PINC,PC1))
 		led = 4;
-	else if(!tst_bit(PINC,PC2))
+	else if(!TST_BIT(PINC,PC2))
 		led = 8;
 }
 
