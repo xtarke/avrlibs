@@ -1,5 +1,5 @@
 /*
- * main.c
+ * 05_main_timer.c
  *
  *  Created on: Mar 9, 2018
  *      Author: Renan Augusto Starke
@@ -13,7 +13,7 @@
 #include "avr_extirq.h"
 
 /**
-  * @brief  Configura hardware do timer0 para IRQ em overlfow.
+  * @brief  Configura hardware do timer0 para IRQ em overflow.
   * @param	Nenhum
   *
   * @retval Nenhum.
@@ -21,7 +21,7 @@
 void timer0_hardware_init(){
 
 	/* Há três maneiras de configurar o TIMER: *
-	 * - Acesso direto ao resgistradores;
+	 * - Acesso direto ao registradores;
 	 * - Acesso indireto por struct aos registradores;
 	 * - Acesso indireto por struct utilizando bit fields
 	 */
@@ -34,11 +34,15 @@ void timer0_hardware_init(){
 	TCCR0B = SET(CS02) | SET(CS00);
 	/* Habilitação de IRQ: overflow */
 	TIMSK0 = SET(TOIE0);
+    
+    /* ou */
 
 	/* Acesso indireto por struct: com avr_timer.h */
 	TIMER_0->TCCRA = 0;
 	TIMER_0->TCCRB = SET(CS02) | SET(CS00);
 	TIMER_IRQS->TC0.MASK = SET(TOIE0);
+    
+    /* ou */
 
 	/* Acesso indireto por struct e bit field: com avr_timer.h */
 	TIMER_0->TCCRA = 0;
