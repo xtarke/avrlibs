@@ -34,15 +34,21 @@ int main(){
 	/* Desliga LED */
 	GPIO_ClrBit(GPIO_B,PB0);
 
+	/* Configura hardware */
+	analog_com_init();
 
 	sei();
 
-	while(1);
+	/* Laço infinito: main não pode retornar */
+	while(1){
+
+
+	}
 }
 
 ISR(ANALOG_COMP_vect)
 {
-   	if(tst_bit(ACSR,ACO))
+   	if(TST_BIT(ACSR,ACO))
    		GPIO_SetBit(GPIO_B,PB0);
 	else
 		GPIO_ClrBit(GPIO_B,PB0);
