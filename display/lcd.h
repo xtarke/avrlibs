@@ -26,13 +26,13 @@
 
 //Definições para facilitar a troca dos pinos do hardware e facilitar a re-programação
 
-#define NIBBLE_DADOS	0		//0 para via de dados do LCD nos 4 LSBs do PORT empregado (Px0-D4, Px1-D5, Px2-D6, Px3-D7)
+#define NIBBLE_DADOS	1		//0 para via de dados do LCD nos 4 LSBs do PORT empregado (Px0-D4, Px1-D5, Px2-D6, Px3-D7)
 								//1 para via de dados do LCD nos 4 MSBs do PORT empregado (Px4-D4, Px5-D5, Px6-D6, Px7-D7) 
-#define DADOS_LCD	GPIO_C
+#define DADOS_LCD	GPIO_D
 
-#define CONTR_LCD		GPIO_C
-#define E    			PC4     //pino de habilitação do LCD (enable)
-#define RS   			PC5     //pino para informar se o dado é uma instrução ou caractere
+#define CONTR_LCD		GPIO_B
+#define E    			PB1     //pino de habilitação do LCD (enable)
+#define RS   			PB0     //pino para informar se o dado é uma instrução ou caractere
 
 /**
   * @brief  Configura hardware.
