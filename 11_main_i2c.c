@@ -46,7 +46,7 @@ int main(){
 		/* msgSize deve ser a quantidade de dados que se deseja *
 		 * receber mais 1 (byte inicial do endereço pois o clock
 		 * deve ser enviado pelo líder do barramento i2c  
-         */
+		 */
 		TWI_Start_Transceiver_With_Data(packge,4);
 
 		/* Copia os dados recebidos para um buffer */
