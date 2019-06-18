@@ -1,0 +1,15 @@
+### Module positions - created on Fri Nov 23 12:42:47 2018 ###
+### Printed by Pcbnew version kicad 4.0.5+dfsg1-4
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val       Package                PosX       PosY       Rot  Side
+C1        2.2u      C_1206              52.5628    18.3910  270.0000  bottom
+Q1        2N7002    SOT-23              44.4137    43.7362    0.0000  bottom
+Q2        2N7002    SOT-23              51.5585    36.0701   90.0000  bottom
+R1        2K2       R_0805              53.6245    27.4930    0.0000  bottom
+R2        2K2       R_0805              41.1632    43.7541   90.0000  bottom
+R3        2K2       R_0805              51.5356    32.9350  180.0000  bottom
+R4        2K2       R_0805              51.6788    45.7988  270.0000  bottom
+R5        2K2       R_0805              49.1998    38.8722    0.0000  bottom
+R6        2K2       R_0805              65.9079    19.1059   90.0000  bottom
+## End

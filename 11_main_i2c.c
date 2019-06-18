@@ -1,7 +1,7 @@
 /*
  * main_lcd_i2c.c
  *
- *  Created on: Mar 27, 2018
+ *  Created on: Jun 4, 2019
  *      Author: Renan Augusto Starke
  *      Instituto Federal de Santa Catarina
  */
