@@ -58,9 +58,9 @@ int main(){
 	/* Pisca LED: set/clear + delay */
 	while(1){
 		SET_BIT(PORTB, LED_PIN);
-		_delay_ms(1000);
+		_delay_ms(100);
 		CLR_BIT(PORTB,LED_PIN);
-		_delay_ms(1000);
+		_delay_ms(100);
 	}
 
 	/*  OU   */
