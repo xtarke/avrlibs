@@ -23,6 +23,10 @@ main:
     call sum
 
 main_loop:
+
+	; Acesso a registradores de  E/S
+	cbi _SFR_IO_ADDR(PORTB), 0
+
     jmp main_loop
 
 
