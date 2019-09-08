@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name Hardware-rescue)(type Legacy)(uri ${KIPRJMOD}/Hardware-rescue.lib)(options "")(descr ""))
+)
