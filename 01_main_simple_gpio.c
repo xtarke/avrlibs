@@ -15,6 +15,8 @@
 #include "lib/avr_gpio.h"
 #include "lib/bits.h"
 
+#include "lib/avr_adc.h"
+
 #define LED_PORT GPIO_B
 #define LED_PIN	PB0
 
