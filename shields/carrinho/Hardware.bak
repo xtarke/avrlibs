@@ -2089,10 +2089,10 @@ Wire Wire Line
 	4900 6300 4900 6150
 Connection ~ 4400 6300
 $Comp
-L Connector_Generic:Conn_01x02 J?
+L Connector_Generic:Conn_01x02 J14
 U 1 1 5D88A1D5
 P 8600 3650
-F 0 "J?" H 8680 3642 50  0000 L CNN
+F 0 "J14" H 8680 3642 50  0000 L CNN
 F 1 "Conn_01x02" H 8680 3551 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8600 3650 50  0001 C CNN
 F 3 "~" H 8600 3650 50  0001 C CNN
@@ -2114,10 +2114,10 @@ Wire Wire Line
 Wire Wire Line
 	8600 3350 8400 3350
 $Comp
-L Connector_Generic:Conn_01x02 J?
+L Connector_Generic:Conn_01x02 J13
 U 1 1 5D8A80B6
 P 8600 3150
-F 0 "J?" H 8680 3142 50  0000 L CNN
+F 0 "J13" H 8680 3142 50  0000 L CNN
 F 1 "Conn_01x02" H 8680 3051 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8600 3150 50  0001 C CNN
 F 3 "~" H 8600 3150 50  0001 C CNN
@@ -2137,10 +2137,10 @@ Wire Wire Line
 Wire Wire Line
 	8900 1350 8900 1450
 $Comp
-L Connector_Generic:Conn_01x02 J?
+L Connector_Generic:Conn_01x02 J1
 U 1 1 5D8A87BB
 P 8600 1050
-F 0 "J?" H 8680 1042 50  0000 L CNN
+F 0 "J1" H 8680 1042 50  0000 L CNN
 F 1 "Conn_01x02" H 8680 951 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8600 1050 50  0001 C CNN
 F 3 "~" H 8600 1050 50  0001 C CNN
@@ -2156,10 +2156,10 @@ Wire Wire Line
 Wire Wire Line
 	8600 1350 8600 1250
 $Comp
-L Connector_Generic:Conn_01x02 J?
+L Connector_Generic:Conn_01x02 J3
 U 1 1 5D8C4BD6
 P 8600 1700
-F 0 "J?" H 8680 1692 50  0000 L CNN
+F 0 "J3" H 8680 1692 50  0000 L CNN
 F 1 "Conn_01x02" H 8680 1601 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8600 1700 50  0001 C CNN
 F 3 "~" H 8600 1700 50  0001 C CNN

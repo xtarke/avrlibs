@@ -1427,7 +1427,7 @@ U 1 1 5CE81B2B
 P 8900 5650
 F 0 "RV2" H 8800 5550 50  0000 R CNN
 F 1 "R_POT_TRIM" H 8800 5450 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Piher_PT-10-H01_Horizontal" H 8900 5650 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Piher_PT-6-V_Vertical" H 8900 5650 50  0001 C CNN
 F 3 "~" H 8900 5650 50  0001 C CNN
 	1    8900 5650
 	1    0    0    -1  
@@ -1571,7 +1571,7 @@ U 1 1 5CFF8CA7
 P 6550 5650
 F 0 "RV1" H 6450 5600 50  0000 R CNN
 F 1 "R_POT_TRIM" H 6500 5450 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Piher_PT-10-H01_Horizontal" H 6550 5650 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Piher_PT-6-V_Vertical" H 6550 5650 50  0001 C CNN
 F 3 "~" H 6550 5650 50  0001 C CNN
 	1    6550 5650
 	1    0    0    -1  
