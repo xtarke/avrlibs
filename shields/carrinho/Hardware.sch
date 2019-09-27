@@ -726,18 +726,14 @@ Wire Wire Line
 $Comp
 L power:+BATT #PWR06
 U 1 1 5CBAF568
-P 3900 900
-F 0 "#PWR06" H 3900 750 50  0001 C CNN
-F 1 "+BATT" H 3915 1073 50  0000 C CNN
-F 2 "" H 3900 900 50  0001 C CNN
-F 3 "" H 3900 900 50  0001 C CNN
-	1    3900 900 
+P 3450 950
+F 0 "#PWR06" H 3450 800 50  0001 C CNN
+F 1 "+BATT" H 3465 1123 50  0000 C CNN
+F 2 "" H 3450 950 50  0001 C CNN
+F 3 "" H 3450 950 50  0001 C CNN
+	1    3450 950 
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3900 900  3900 950 
-Wire Wire Line
-	3900 950  4000 950 
 Wire Wire Line
 	4000 1050 3900 1050
 Wire Wire Line
@@ -796,7 +792,7 @@ Wire Notes Line
 	4850 2900 4850 1700
 Wire Notes Line
 	4850 1700 6350 1700
-Text Notes 4900 1850 0    79   ~ 0
+Text Notes 4950 1850 0    79   ~ 0
 Regulador de tensão 
 Wire Notes Line
 	3250 550  3250 3350
@@ -807,7 +803,7 @@ Wire Notes Line
 Wire Notes Line
 	550  550  3250 550 
 Text Notes 600  700  0    79   ~ 0
-STM32
+Controll conector
 $Comp
 L power:+5V #PWR0101
 U 1 1 5CCBA82A
@@ -983,12 +979,12 @@ $EndComp
 $Comp
 L power:+BATT #PWR02
 U 1 1 5CC49D66
-P 5200 2050
-F 0 "#PWR02" H 5200 1900 50  0001 C CNN
-F 1 "+BATT" H 5215 2223 50  0000 C CNN
-F 2 "" H 5200 2050 50  0001 C CNN
-F 3 "" H 5200 2050 50  0001 C CNN
-	1    5200 2050
+P 5200 2000
+F 0 "#PWR02" H 5200 1850 50  0001 C CNN
+F 1 "+BATT" H 5050 2050 50  0000 C CNN
+F 2 "" H 5200 2000 50  0001 C CNN
+F 3 "" H 5200 2000 50  0001 C CNN
+	1    5200 2000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1779,8 +1775,8 @@ $Comp
 L Connector:Conn_01x02_Male J4
 U 1 1 5CEE1749
 P 5000 2400
-F 0 "J4" H 5106 2578 50  0000 C CNN
-F 1 "Conn_01x02_Male" H 5550 2500 50  0000 C CNN
+F 0 "J4" H 5000 2200 50  0000 C CNN
+F 1 "Conn_01x02_Male" H 5550 2100 50  0000 C CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 5000 2400 50  0001 C CNN
 F 3 "~" H 5000 2400 50  0001 C CNN
 	1    5000 2400
@@ -1791,7 +1787,7 @@ L Connector:Conn_01x02_Male J5
 U 1 1 5CF04613
 P 6200 2500
 F 0 "J5" H 6173 2380 50  0000 R CNN
-F 1 "Conn_01x02_Male" H 7100 2400 50  0000 R CNN
+F 1 "Conn_01x02_Male" H 7100 2800 50  0000 R CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 6200 2500 50  0001 C CNN
 F 3 "~" H 6200 2500 50  0001 C CNN
 	1    6200 2500
@@ -1801,8 +1797,8 @@ $Comp
 L Connector:Conn_01x02_Male J6
 U 1 1 5CF103AE
 P 5000 2150
-F 0 "J6" H 5106 2328 50  0000 C CNN
-F 1 "Conn_01x02_Male" H 5550 2250 50  0000 C CNN
+F 0 "J6" H 4950 2150 50  0000 C CNN
+F 1 "Conn_01x02_Male" H 5600 1950 50  0000 C CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 5000 2150 50  0001 C CNN
 F 3 "~" H 5000 2150 50  0001 C CNN
 	1    5000 2150
@@ -1813,7 +1809,7 @@ L Connector:Conn_01x02_Male J7
 U 1 1 5CF10483
 P 6200 2250
 F 0 "J7" H 6173 2130 50  0000 R CNN
-F 1 "Conn_01x02_Male" H 7100 2150 50  0000 R CNN
+F 1 "Conn_01x02_Male" H 7100 2400 50  0000 R CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 6200 2250 50  0001 C CNN
 F 3 "~" H 6200 2250 50  0001 C CNN
 	1    6200 2250
@@ -1957,8 +1953,6 @@ Wire Wire Line
 	6000 2400 6000 2500
 Wire Wire Line
 	6000 2050 6000 2150
-Wire Wire Line
-	5200 2050 5200 2150
 Wire Wire Line
 	5200 2500 5200 2600
 $Comp
@@ -2172,4 +2166,102 @@ Connection ~ 8700 1350
 Wire Wire Line
 	8600 1500 8600 1350
 Connection ~ 8600 1350
+$Comp
+L Mechanical:MountingHole H1
+U 1 1 5D89937E
+P 850 3550
+F 0 "H1" H 950 3596 50  0000 L CNN
+F 1 "MountingHole" H 950 3505 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 850 3550 50  0001 C CNN
+F 3 "~" H 850 3550 50  0001 C CNN
+	1    850  3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H2
+U 1 1 5D8995E4
+P 850 3850
+F 0 "H2" H 950 3896 50  0000 L CNN
+F 1 "MountingHole" H 950 3805 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 850 3850 50  0001 C CNN
+F 3 "~" H 850 3850 50  0001 C CNN
+	1    850  3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H3
+U 1 1 5D899751
+P 1750 3550
+F 0 "H3" H 1850 3596 50  0000 L CNN
+F 1 "MountingHole" H 1850 3505 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 1750 3550 50  0001 C CNN
+F 3 "~" H 1750 3550 50  0001 C CNN
+	1    1750 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D_Schottky D12
+U 1 1 5D89B26A
+P 3800 950
+F 0 "D12" H 3800 1050 50  0000 C CNN
+F 1 "D_Schottky" H 4100 1100 50  0000 C CNN
+F 2 "Diode_SMD:D_SMB" H 3800 950 50  0001 C CNN
+F 3 "~" H 3800 950 50  0001 C CNN
+	1    3800 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R35
+U 1 1 5D8B9C61
+P 2950 2800
+F 0 "R35" H 3020 2846 50  0000 L CNN
+F 1 "1K" H 3020 2755 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 2880 2800 50  0001 C CNN
+F 3 "~" H 2950 2800 50  0001 C CNN
+	1    2950 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D11
+U 1 1 5D8B9D9D
+P 2950 2450
+F 0 "D11" V 2988 2333 50  0000 R CNN
+F 1 "LED" V 2897 2333 50  0000 R CNN
+F 2 "LED_SMD:LED_0805_2012Metric" H 2950 2450 50  0001 C CNN
+F 3 "~" H 2950 2450 50  0001 C CNN
+	1    2950 2450
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR09
+U 1 1 5D8B9EDF
+P 2950 3000
+F 0 "#PWR09" H 2950 2750 50  0001 C CNN
+F 1 "GND" H 2955 2827 50  0000 C CNN
+F 2 "" H 2950 3000 50  0001 C CNN
+F 3 "" H 2950 3000 50  0001 C CNN
+	1    2950 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 2950 2950 3000
+Wire Wire Line
+	2950 2600 2950 2650
+$Comp
+L power:+5V #PWR07
+U 1 1 5D91421D
+P 2950 2300
+F 0 "#PWR07" H 2950 2150 50  0001 C CNN
+F 1 "+5V" H 2965 2473 50  0000 C CNN
+F 2 "" H 2950 2300 50  0001 C CNN
+F 3 "" H 2950 2300 50  0001 C CNN
+	1    2950 2300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 2000 5200 2150
+Wire Wire Line
+	3950 950  4000 950 
+Wire Wire Line
+	3650 950  3450 950 
 $EndSCHEMATC
