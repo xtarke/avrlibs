@@ -47,7 +47,7 @@ void timer0_pwm_hardware_init(){
   *
   * @retval Nenhum.
   */
-inline void set_dutty(uint8_t dutty){
+void set_dutty(uint8_t dutty){
 
 	if (dutty <= TIMER_0->OCRA)
 		TIMER_0->OCRB = dutty;
