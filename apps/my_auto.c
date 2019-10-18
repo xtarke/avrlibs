@@ -37,18 +37,45 @@ int main(){
 
 	while (1){
 
+		GPIO_B->PORT = 0x00;
 
-		if ((cmd == 'r') && (!GPIO_PortTstBit(MOTOR_PORT,PWM1))){
+		/* Move Back */
+		if (cmd == 'B'){
+			GPIO_ClrBit(MOTOR_PORT,PWM1);
+			GPIO_ClrBit(MOTOR_PORT,PWM2);
+
 			GPIO_SetBit(MOTOR_PORT,PWM1N);
 			GPIO_SetBit(MOTOR_PORT,PWM2N);
 		}
 
-		if ((cmd == 'f') && (!GPIO_PortTstBit(MOTOR_PORT,PWM1N))){
-				GPIO_SetBit(MOTOR_PORT,PWM1);
-				GPIO_SetBit(MOTOR_PORT,PWM2);
+		/* Move Front */
+		if ((cmd == 'F') && (!GPIO_PortTstBit(MOTOR_PORT,PWM1N))){
+			GPIO_ClrBit(MOTOR_PORT,PWM1N);
+			GPIO_ClrBit(MOTOR_PORT,PWM2N);
+
+			GPIO_SetBit(MOTOR_PORT,PWM1);
+			GPIO_SetBit(MOTOR_PORT,PWM2);
 		}
 
-		if (cmd == 'd'){
+		/* Move Left */
+		if ((cmd == 'L') && (!GPIO_PortTstBit(MOTOR_PORT,PWM1N))){
+			GPIO_ClrBit(MOTOR_PORT,PWM1N);
+			GPIO_ClrBit(MOTOR_PORT,PWM2);
+
+			GPIO_SetBit(MOTOR_PORT,PWM1);
+			GPIO_SetBit(MOTOR_PORT,PWM2N);
+		}
+
+		/* Move Right */
+		if ((cmd == 'R') && (!GPIO_PortTstBit(MOTOR_PORT,PWM1N))){
+			GPIO_ClrBit(MOTOR_PORT,PWM1);
+			GPIO_ClrBit(MOTOR_PORT,PWM2N);
+
+			GPIO_SetBit(MOTOR_PORT,PWM1N);
+			GPIO_SetBit(MOTOR_PORT,PWM2);
+		}
+
+		if (cmd == 'S'){
 			GPIO_B->PORT = 0x00;
 		}
 
