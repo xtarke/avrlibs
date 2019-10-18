@@ -61,17 +61,17 @@ int main(){
 		if ((cmd == 'L') && (!GPIO_PortTstBit(MOTOR_PORT,PWM1N))){
 			GPIO_ClrBit(MOTOR_PORT,PWM1N);
 			GPIO_ClrBit(MOTOR_PORT,PWM2);
+			GPIO_ClrBit(MOTOR_PORT,PWM2N);
 
 			GPIO_SetBit(MOTOR_PORT,PWM1);
-			GPIO_SetBit(MOTOR_PORT,PWM2N);
 		}
 
 		/* Move Right */
 		if ((cmd == 'R') && (!GPIO_PortTstBit(MOTOR_PORT,PWM1N))){
 			GPIO_ClrBit(MOTOR_PORT,PWM1);
 			GPIO_ClrBit(MOTOR_PORT,PWM2N);
+			GPIO_ClrBit(MOTOR_PORT,PWM1N);
 
-			GPIO_SetBit(MOTOR_PORT,PWM1N);
 			GPIO_SetBit(MOTOR_PORT,PWM2);
 		}
 
