@@ -31,13 +31,13 @@ int main(){
 	/* Clear all outputs */
 	GPIO_B->PORT = 0x00;
 
-	USART_Init(B9600);
+	USART_Init(B38400);
 
 	sei();
 
 	while (1){
 
-		GPIO_B->PORT = 0x00;
+		//GPIO_B->PORT = 0x00;
 
 		/* Move Back */
 		if (cmd == 'B'){
@@ -49,7 +49,7 @@ int main(){
 		}
 
 		/* Move Front */
-		if ((cmd == 'F') && (!GPIO_PortTstBit(MOTOR_PORT,PWM1N))){
+		if (cmd == 'F'){
 			GPIO_ClrBit(MOTOR_PORT,PWM1N);
 			GPIO_ClrBit(MOTOR_PORT,PWM2N);
 
@@ -58,7 +58,7 @@ int main(){
 		}
 
 		/* Move Left */
-		if ((cmd == 'L') && (!GPIO_PortTstBit(MOTOR_PORT,PWM1N))){
+		if (cmd == 'L'){
 			GPIO_ClrBit(MOTOR_PORT,PWM1N);
 			GPIO_ClrBit(MOTOR_PORT,PWM2);
 			GPIO_ClrBit(MOTOR_PORT,PWM2N);
@@ -67,7 +67,7 @@ int main(){
 		}
 
 		/* Move Right */
-		if ((cmd == 'R') && (!GPIO_PortTstBit(MOTOR_PORT,PWM1N))){
+		if (cmd == 'R'){
 			GPIO_ClrBit(MOTOR_PORT,PWM1);
 			GPIO_ClrBit(MOTOR_PORT,PWM2N);
 			GPIO_ClrBit(MOTOR_PORT,PWM1N);
