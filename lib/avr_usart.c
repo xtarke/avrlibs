@@ -11,6 +11,19 @@
 #include "avr_usart.h"
 #include "bits.h"
 
+#include <avr/sleep.h>
+
+volatile struct uart_status_struct {
+    uint8_t *rx_data;   /*!< Pointer to store received data */
+    uint8_t rx_count;   /*!< Number of bytes to receive  */
+    uint8_t rx_complete; /*!< True if all bytes are received */
+
+    uint8_t *tx_data;   /*!< Data to send */
+    uint8_t tx_count;   /*!< Number of bytes to send  */
+
+
+} uart_state;
+
 static int usart_putchar(char c, FILE *fp);
 
 /* Stream init for printf  */
@@ -35,6 +48,14 @@ void USART_Init(uint16_t bauds){
 	 * - 1 stop bit
 	 * - no parity 	 */
 	USART_0->UCSR_C = SET(UCSZ01) | SET(UCSZ00);
+}
+
+
+void uart1_rx_pkg(uint8_t *data, uint8_t size){
+    /* Decrement size and data pointer since transmission start here */
+    uart_state.rx_complete = 0;
+	uart_state.rx_count = size;
+    uart_state.rx_data = data;
 }
 
 
@@ -63,13 +84,27 @@ static int usart_putchar(char c, FILE *fp){
 	return 0;
 }
 
+uint8_t is_rx_complete(){
+	return uart_state.rx_complete;
+}
 
-//ISR(USART_RX_vect){
-//
-//
-//
-//
-//}
+
+ISR(USART_RX_vect){
+	/* Get data from hardware */
+	uint8_t data = USART_0->UDR_;
+	/* Byte counter */
+	static uint8_t bytes = 0;
+
+	/* Read received data */
+	uart_state.rx_data[bytes++] = data;
+
+	/* Wake up CPU only when a package is received */
+	if (uart_state.rx_count == bytes) {
+		bytes = 0;
+		uart_state.rx_complete = 1;
+	}
+
+}
 
 ISR(USART_TX_vect){
 
