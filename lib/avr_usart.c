@@ -7,6 +7,8 @@
  */
 
 #include <stdio.h>
+#include <string.h>
+
 #include <avr/interrupt.h>
 #include "avr_usart.h"
 #include "bits.h"
@@ -36,13 +38,15 @@ FILE * get_usart_stream(){
 
 void USART_Init(uint16_t bauds){
 
+	memset((void *)&uart_state,0,sizeof(uart_state));
+
 	USART_0->UBRR_H = (uint8_t) (bauds >> 8);
 	USART_0->UBRR_L = bauds;
 
 	/* Disable double speed  */
 	USART_0->UCSR_A = 0;
 	/* Enable TX and RX */
-	USART_0->UCSR_B = SET(RXEN0) | SET(TXEN0) | SET(RXCIE0);
+	USART_0->UCSR_B = SET(RXEN0) | SET(TXEN0) | SET(RXCIE0) | SET(TXCIE0);
 	/* Asynchronous mode:
 	 * - 8 data bits
 	 * - 1 stop bit
@@ -51,11 +55,18 @@ void USART_Init(uint16_t bauds){
 }
 
 
-void uart1_rx_pkg(uint8_t *data, uint8_t size){
+void uart1_rx_pkg_with_irq(uint8_t *data, uint8_t size){
     /* Decrement size and data pointer since transmission start here */
     uart_state.rx_complete = 0;
 	uart_state.rx_count = size;
     uart_state.rx_data = data;
+}
+
+void uart1_tx_pkg_with_irq(uint8_t *data, uint8_t size){
+	/* Decrement size and data pointer since transmission start here */
+	uart_state.tx_count = size - 1;
+	uart_state.tx_data = (data + 1);
+	USART_0->UDR_ = *(data);
 }
 
 
@@ -96,7 +107,8 @@ ISR(USART_RX_vect){
 	static uint8_t bytes = 0;
 
 	/* Read received data */
-	uart_state.rx_data[bytes++] = data;
+	//if (uart_state.rx_data != NULL)
+		uart_state.rx_data[bytes++] = data;
 
 	/* Wake up CPU only when a package is received */
 	if (uart_state.rx_count == bytes) {
@@ -107,8 +119,8 @@ ISR(USART_RX_vect){
 }
 
 ISR(USART_TX_vect){
-
-
-
-
+	if (uart_state.tx_count) {
+		USART_0->UDR_ = *(uart_state.tx_data++);
+		uart_state.tx_count--;
+	}
 }

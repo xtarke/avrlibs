@@ -16,7 +16,7 @@
 
 int main(){
 	uint8_t x = 0;
-	uint8_t data[8] = {0};
+	uint8_t data[8] = {0xaa, 0xbb, 0xcc, 0xdd};
 
 	DDRB = (1 << PB5);
 
@@ -34,18 +34,18 @@ int main(){
 
 	while (1){
 		/* Pára o main até receber os dado da USART */
-		if (!is_rx_complete())
-			uart1_rx_pkg(data, 4);
+		if (!is_rx_complete()){
+			uart1_rx_pkg_with_irq(data, 4);
+			/* Dorme */
+			sleep_mode();
+		}
 		else{
 			/* Envia o recebido */
-			for (x=0; x < 4; x++)
-				USART_tx(data[x]);
+			uart1_tx_pkg_with_irq(data, 4);
 
-			uart1_rx_pkg(data, 4);
+			/* Programa o próximo recebimento */
+			uart1_rx_pkg_with_irq(data, 4);
 		}
-		/* Dorme: acorda apenas quando ocorre uma IRQ
-		 * Nesse caso da UART */
-		sleep_mode();
 
 		/* Pisca LED */
 		CPL_BIT(PORTB, PB5);
