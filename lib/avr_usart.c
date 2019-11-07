@@ -107,7 +107,7 @@ ISR(USART_RX_vect){
 	static uint8_t bytes = 0;
 
 	/* Read received data */
-	//if (uart_state.rx_data != NULL)
+	if (uart_state.rx_data != NULL)
 		uart_state.rx_data[bytes++] = data;
 
 	/* Wake up CPU only when a package is received */
