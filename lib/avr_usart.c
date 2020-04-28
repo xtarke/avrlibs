@@ -7,9 +7,24 @@
  */
 
 #include <stdio.h>
+#include <string.h>
+
 #include <avr/interrupt.h>
 #include "avr_usart.h"
 #include "bits.h"
+
+#include <avr/sleep.h>
+
+volatile struct uart_status_struct {
+    uint8_t *rx_data;   /*!< Pointer to store received data */
+    uint8_t rx_count;   /*!< Number of bytes to receive  */
+    uint8_t rx_complete; /*!< True if all bytes are received */
+
+    uint8_t *tx_data;   /*!< Data to send */
+    uint8_t tx_count;   /*!< Number of bytes to send  */
+
+
+} uart_state;
 
 static int usart_putchar(char c, FILE *fp);
 
@@ -23,18 +38,35 @@ FILE * get_usart_stream(){
 
 void USART_Init(uint16_t bauds){
 
+	memset((void *)&uart_state,0,sizeof(uart_state));
+
 	USART_0->UBRR_H = (uint8_t) (bauds >> 8);
 	USART_0->UBRR_L = bauds;
 
 	/* Disable double speed  */
 	USART_0->UCSR_A = 0;
 	/* Enable TX and RX */
-	USART_0->UCSR_B = SET(RXEN0) | SET(TXEN0) | SET(RXCIE0);
+	USART_0->UCSR_B = SET(RXEN0) | SET(TXEN0) | SET(RXCIE0) | SET(TXCIE0);
 	/* Asynchronous mode:
 	 * - 8 data bits
 	 * - 1 stop bit
 	 * - no parity 	 */
 	USART_0->UCSR_C = SET(UCSZ01) | SET(UCSZ00);
+}
+
+
+void uart1_rx_pkg_with_irq(uint8_t *data, uint8_t size){
+    /* Decrement size and data pointer since transmission start here */
+    uart_state.rx_complete = 0;
+	uart_state.rx_count = size;
+    uart_state.rx_data = data;
+}
+
+void uart1_tx_pkg_with_irq(uint8_t *data, uint8_t size){
+	/* Decrement size and data pointer since transmission start here */
+	uart_state.tx_count = size - 1;
+	uart_state.tx_data = (data + 1);
+	USART_0->UDR_ = *(data);
 }
 
 
@@ -63,17 +95,32 @@ static int usart_putchar(char c, FILE *fp){
 	return 0;
 }
 
+uint8_t is_rx_complete(){
+	return uart_state.rx_complete;
+}
 
-//ISR(USART_RX_vect){
-//
-//
-//
-//
-//}
+
+ISR(USART_RX_vect){
+	/* Get data from hardware */
+	uint8_t data = USART_0->UDR_;
+	/* Byte counter */
+	static uint8_t bytes = 0;
+
+	/* Read received data */
+	if (uart_state.rx_data != NULL)
+		uart_state.rx_data[bytes++] = data;
+
+	/* Wake up CPU only when a package is received */
+	if (uart_state.rx_count == bytes) {
+		bytes = 0;
+		uart_state.rx_complete = 1;
+	}
+
+}
 
 ISR(USART_TX_vect){
-
-
-
-
+	if (uart_state.tx_count) {
+		USART_0->UDR_ = *(uart_state.tx_data++);
+		uart_state.tx_count--;
+	}
 }

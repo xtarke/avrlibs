@@ -48,5 +48,9 @@ FILE * get_usart_stream();
 void USART_tx(uint8_t data);
 uint8_t USART_rx();
 
+void uart1_rx_pkg_with_irq(uint8_t *data, uint8_t size);
+void uart1_tx_pkg_with_irq(uint8_t *data, uint8_t size);
+uint8_t is_rx_complete();
+
 
 #endif
