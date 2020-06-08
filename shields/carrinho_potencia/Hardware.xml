@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="D">
   <design>
-    <source>/home/xtarke/Projects/avr/avrlibs/shields/carrinho/Hardware.sch</source>
-    <date>Wed 13 Nov 2019 09:01:48 PM -03</date>
+    <source>/home/xtarke/Projects/avrlibs/shields/carrinho/Hardware.sch</source>
+    <date>Thu 21 May 2020 10:24:53 AM -03</date>
     <tool>Eeschema 5.0.2+dfsg1-1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -268,7 +268,7 @@
     </comp>
     <comp ref="D7">
       <value>DIODE</value>
-      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp</footprint>
+      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_KathodeUp</footprint>
       <datasheet>~</datasheet>
       <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
       <sheetpath names="/" tstamps="/"/>
@@ -276,7 +276,7 @@
     </comp>
     <comp ref="D3">
       <value>DIODE</value>
-      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp</footprint>
+      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_KathodeUp</footprint>
       <datasheet>~</datasheet>
       <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
       <sheetpath names="/" tstamps="/"/>
@@ -284,7 +284,7 @@
     </comp>
     <comp ref="D4">
       <value>DIODE</value>
-      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp</footprint>
+      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_KathodeUp</footprint>
       <datasheet>~</datasheet>
       <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
       <sheetpath names="/" tstamps="/"/>
@@ -292,7 +292,7 @@
     </comp>
     <comp ref="D2">
       <value>DIODE</value>
-      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp</footprint>
+      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_KathodeUp</footprint>
       <datasheet>~</datasheet>
       <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
       <sheetpath names="/" tstamps="/"/>
@@ -300,7 +300,7 @@
     </comp>
     <comp ref="D1">
       <value>DIODE</value>
-      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp</footprint>
+      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_KathodeUp</footprint>
       <datasheet>~</datasheet>
       <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
       <sheetpath names="/" tstamps="/"/>
@@ -308,7 +308,7 @@
     </comp>
     <comp ref="D5">
       <value>DIODE</value>
-      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp</footprint>
+      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_KathodeUp</footprint>
       <datasheet>~</datasheet>
       <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
       <sheetpath names="/" tstamps="/"/>
@@ -316,7 +316,7 @@
     </comp>
     <comp ref="D6">
       <value>DIODE</value>
-      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp</footprint>
+      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_KathodeUp</footprint>
       <datasheet>~</datasheet>
       <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
       <sheetpath names="/" tstamps="/"/>
@@ -324,7 +324,7 @@
     </comp>
     <comp ref="D8">
       <value>DIODE</value>
-      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp</footprint>
+      <footprint>Diode_THT:D_A-405_P2.54mm_Vertical_KathodeUp</footprint>
       <datasheet>~</datasheet>
       <libsource lib="pspice" part="DIODE" description="Diode symbol for simulation only. Pin order incompatible with official kicad footprints"/>
       <sheetpath names="/" tstamps="/"/>
@@ -1121,7 +1121,7 @@
       <uri>/usr/share/kicad/library/Device.lib</uri>
     </library>
     <library logical="Hardware-rescue">
-      <uri>/home/xtarke/Projects/avr/avrlibs/shields/carrinho/Hardware-rescue.lib</uri>
+      <uri>/home/xtarke/Projects/avrlibs/shields/carrinho/Hardware-rescue.lib</uri>
     </library>
     <library logical="Mechanical">
       <uri>/usr/share/kicad/library/Mechanical.lib</uri>
