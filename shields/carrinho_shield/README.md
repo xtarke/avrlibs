@@ -8,6 +8,7 @@ See [this schematic](schematic.pdf).
 
 ![Board](./3d_complete.png)
 
+![Board](./3d_complete_side.png)
 
 ## Analog pins
 
