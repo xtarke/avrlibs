@@ -6,6 +6,9 @@ See [this schematic](schematic.pdf).
 
 ![Board](./board.png)
 
+![Board](./3d_complete.png)
+
+
 ## Analog pins
 
 | Analog input  | Arduino pin  | Board label  | Signal |
