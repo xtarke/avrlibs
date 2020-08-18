@@ -11,6 +11,9 @@
     - PUL- : Arduino GPIO
     - PUL+ : VCC
 
+- Real time Software:
+    - https://github.com/grbl/grbl
+
 - Hardware: https://blog.protoneer.co.nz/wp-content/uploads/2013/07/Arduino-CNC-Shield-Schematics.png 
 
 Universal Gcode Sender:
