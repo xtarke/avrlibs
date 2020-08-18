@@ -21,3 +21,8 @@ Universal Gcode Sender:
    - Feed rate = 200
 
 
+
+Verificar:
+    https://opensource.com/article/19/1/cnc-milling-open-source-software
+    http://jscut.org/
+
