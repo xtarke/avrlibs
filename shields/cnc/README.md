@@ -1,28 +1,36 @@
-# Ligação Elétrica
+# Rolland PNC-2300
 
-## Enable:
+New electronics for Rolland PNC-2300.
+
+## Conections
+
+![Board and driver](./figures/connections.svg)
+
+- Enable (inverted):
 
     - ENA- : GND
-    - ENA+ : Arduino GPIO
+    - ENA+ : Arduino GPIO  (driver in Figure)
 
-    - DIR- : Arduino GPIO
-    - DIR+ : VCC
+- Direction:
 
-    - PUL- : Arduino GPIO
-    - PUL+ : VCC
+    - DIR- : Arduino GPIO (driver in Figure)
+    - DIR+ : +5V
 
-- Real time Software:
-    - https://github.com/grbl/grbl
+- Pulses:
 
-- Hardware: https://blog.protoneer.co.nz/wp-content/uploads/2013/07/Arduino-CNC-Shield-Schematics.png 
+    - PUL- : Arduino GPIO (driver in Figure)
+    - PUL+ : +5V
 
-Universal Gcode Sender:
-   - Software: http://winder.github.io/ugs_website/download/
-   - Feed rate = 200
+## Software
 
+- Arduino Uno: [grbl](https://github.com/grbl/grbl)
 
+- PC:
+  - [Universal Gcode Sender](http://winder.github.io/ugs_website/download/) (use Feed rate = 200)
+  - Check:
+    - https://opensource.com/article/19/1/cnc-milling-open-source-software
+    - http://jscut.org/
 
-Verificar:
-    https://opensource.com/article/19/1/cnc-milling-open-source-software
-    http://jscut.org/
+## Refs:
 
+- Hardware: https://blog.protoneer.co.nz/wp-content/uploads/2013/07/Arduino-CNC-Shield-Schematics.png
