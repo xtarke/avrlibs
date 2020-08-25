@@ -23,6 +23,8 @@ New electronics for Rolland PNC-2300.
     
  - Switches: Habilitado debounce por software em config.h (GRBL).
              Colocado capacitor 22nF no eixo Z
+             
+ - Fundo de escala eixo Z: 26.65mm
 
 ## Software
 
@@ -31,7 +33,7 @@ New electronics for Rolland PNC-2300.
 $0 = 10    (step pulse, usec)
 $1 = 25    (step idle delay, msec)
 $2 = 0    (step port invert mask:00000000)
-$3 = 0    (dir port invert mask:00000000)
+$3 = 1    (dir port invert mask:00000001)
 $4 = 0    (step enable invert, bool)
 $5 = 0    (limit pins invert, bool)
 $6 = 0    (probe pin invert, bool)
@@ -42,14 +44,14 @@ $13 = 0    (report inches, bool)
 $20 = 0    (soft limits, bool)
 $21 = 1    (hard limits, bool)
 $22 = 1    (homing cycle, bool)
-$23 = 3    (homing dir invert mask:00000011)    -> Quadrantes
+$23 = 3    (homing dir invert mask:00000011)
 $24 = 200.000    (homing feed, mm/min)
 $25 = 500.000    (homing seek, mm/min)
 $26 = 250    (homing debounce, msec)
 $27 = 1.000    (homing pull-off, mm)
-$100 = 250.000    (x, step/mm)
-$101 = 250.000    (y, step/mm)
-$102 = 1000.000    (z, step/mm)
+$100 = 290.000    (x, step/mm)
+$101 = 290.000    (y, step/mm)
+$102 = 3209.000    (z, step/mm)
 $110 = 500.000    (x max rate, mm/min)
 $111 = 500.000    (y max rate, mm/min)
 $112 = 500.000    (z max rate, mm/min)
