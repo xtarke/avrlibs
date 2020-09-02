@@ -20,16 +20,20 @@ New electronics for Rolland PNC-2300.
 
     - PUL- : Arduino GPIO (driver in Figure)
     - PUL+ : +5V
-    
+
  - Switches: Habilitado debounce por software em config.h (GRBL).
              Colocado capacitor 22nF no eixo Z
-             
- - Fundo de escala eixo Z: 26.65mm
+
+ - Fundo de escala eixo Z: 26.65mm (depende da ferramenta)
+
+ - Auto nivelamento:
+    - Probe Pin (Arduino A5): https://github.com/grbl/grbl/wiki/Connecting-Grbl
 
 ## Software
 
 - Arduino Uno: [grbl](https://github.com/grbl/grbl)
 
+```
 $0 = 10    (step pulse, usec)
 $1 = 25    (step idle delay, msec)
 $2 = 0    (step port invert mask:00000000)
@@ -61,10 +65,18 @@ $122 = 10.000    (z accel, mm/sec^2)
 $130 = 200.000    (x max travel, mm)
 $131 = 200.000    (y max travel, mm)
 $132 = 200.000    (z max travel, mm)
-   
+```
+
 
 - PC:
   - [Universal Gcode Sender](http://winder.github.io/ugs_website/download/) (use Feed rate = 200)
+
+  - gerber2gcode:  Flatcam
+     - https://www.youtube.com/watch?v=O3GZsEHeH8w
+
+  - bCNC: autolevel?
+    - https://www.youtube.com/watch?v=icJ4m5zBqoA
+
   - Check:
     - https://opensource.com/article/19/1/cnc-milling-open-source-software
     - http://jscut.org/
