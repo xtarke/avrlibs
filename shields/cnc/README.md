@@ -1,8 +1,12 @@
 # Rolland PNC-2300
 
-New electronics for Rolland PNC-2300.
+Adaptação eletrônica da Rolland PNC-2300.
 
-## Conections
+Novas funções:
+  - Fim de curso nos eixos x,y e z.
+  - Auto nivelamento.
+
+## Conexões:
 
 ![Board and driver](./figures/connections.svg)
 
@@ -29,7 +33,7 @@ New electronics for Rolland PNC-2300.
  - Auto nivelamento:
     - Probe Pin (Arduino A5): https://github.com/grbl/grbl/wiki/Connecting-Grbl
 
-## Software
+## Software CNC
 
 - Arduino Uno: [grbl](https://github.com/grbl/grbl)
 
@@ -67,36 +71,90 @@ $131 = 200.000    (y max travel, mm)
 $132 = 200.000    (z max travel, mm)
 ```
 
+## Software G-code
 
-- PC:
+- bCNC:
+  - Envio de G-codes.
+  - Auto-nivelamento.
+  - [bCNC Github](https://github.com/vlachoudis/bCNC)
+  - [Vídeo](https://www.youtube.com/watch?v=icJ4m5zBqoA)
+
+- Criação do G-code à partir do gerber.
+  - [Flatcam](http://flatcam.org/)
+  - [Vídeo](https://www.youtube.com/watch?v=O3GZsEHeH8w)
+
+- Testes rápidos:
   - [Universal Gcode Sender](http://winder.github.io/ugs_website/download/) (use Feed rate = 200)
 
-  - gerber2gcode:  Flatcam
-     - https://www.youtube.com/watch?v=O3GZsEHeH8w
-
-  - bCNC: autolevel?
-    - https://www.youtube.com/watch?v=icJ4m5zBqoA
-
-  - Check:
-    - https://opensource.com/article/19/1/cnc-milling-open-source-software
-    - http://jscut.org/
-
-    
 ## Regras PCBs
 
-Clearance     12mils
-Track W     20 a 30mils
-Via Dia     1.5mm
-Via Drill   0.6mm
-uVia Drill  1.5mm
-uVia Drill  0.6mm
+| Parâmetro  |             |
+|------------|-------------|
+| Clearance  | 12mils      |
+| Track W    | 20 a 30mils |
+| Via Dia    | 1.5mm       |
+| Via Drill  | 0.6mm       |
+| uVia Drill | 1.5mm       |
+| uVia Drill | 0.6mm       |
 
-    - Cuidado com conectores. Após roteamento com Clearance = 12mils, mudar para 6 mils para aumentar os pads. Sugere-se usar pads quadrados nos conectores para aumentar a área de cobre pós furo.
-    
-    - Criar dois furos simétricos no eixo x para alinhamento. ToDo: diâmetro do furo?
-    
-    
-    
+- Cuidado com conectores. Sugere-se aumentar a área dos pads com furo de 1mm para 2x2mm para aumentar a área de cobre pós furo. __Para alterar todos: Clique direito, pads, Push pad proprieties__
+
+![Exemplo de Pads](./figures/pads.png)
+
+- Faça os furos de alinhamento no centro do eixo X e nos limites da placa para placas dupla-face:
+
+![Exemplo de Pads](./figures/aligment_01.svg)
+
+
+## Geração de g-code pelo Flatam
+
+1. Carregar o gerber bottom:
+
+2. Carregar p gerber drill.
+
+3. Fazer o espelhamento (Tools - Doubled-side PCB tool)
+  - __Certifique-se que o espelhamento do Flatcam esteja de acordo com o diagrama 3D.__
+![Exemplo de Pads](./figures/aligment_02.png)
+
+3. Alinhar os furos de aliamento na coordenada (0,0) após o espelhamento.
+  - Para alinhar o drill, use o vetor (-0.3, -0.3)
+  - Para alinhar o bottom, use o vetor (-0.75, -0.75)
+  - __Valores do vetor baseaiam-se em uma uma via: furo de 0.6mm e pad de 1.5mm após o Offset Auto.__
+![Exemplo de Pads](./figures/aligment_03.png)
+
+4. Gerar o G-Code com o seguintes parâmetros (Generate Geometry):
+
+![Exemplo de Pads](./figures/g_code_01.png)
+
+| Parâmetro     |       |
+|---------------|-------------|
+| Z Cut         | -0.1        |
+| Tool diameter | 0.3 (varia com a ferramenta)       |
+| Overlap       | 0.0001      |
+| Feed rate     | 150         |
+| Travel Z      | 1           |
+
+![Exemplo de Pads](./figures/g_code_02.png)
+
+![Exemplo de Pads](./figures/g_code_03.png)
+
+5. Gerar o g-code para marcação dos furos.
+  - Selecione o gerber drill.
+
+  | Parâmetro     |       |
+  |---------------|-------------|
+  | Z Cut         | -0.1        |
+  | Feed rate     | 150         |
+  | Travel Z      | 1           |
+
+![Exemplo de Pads](./figures/g_code_04.png)
+![Exemplo de Pads](./figures/g_code_05.png)
+
+
+## Usando o bCNC para usinar a placa
+
+ToDO....
+
 ## Refs:
 
 - Hardware: https://blog.protoneer.co.nz/wp-content/uploads/2013/07/Arduino-CNC-Shield-Schematics.png
