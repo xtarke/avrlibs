@@ -81,6 +81,22 @@ $132 = 200.000    (z max travel, mm)
     - https://opensource.com/article/19/1/cnc-milling-open-source-software
     - http://jscut.org/
 
+    
+## Regras PCBs
+
+Clearance     12mils
+Track W     20 a 30mils
+Via Dia     1.5mm
+Via Drill   0.6mm
+uVia Drill  1.5mm
+uVia Drill  0.6mm
+
+    - Cuidado com conectores. Após roteamento com Clearance = 12mils, mudar para 6 mils para aumentar os pads. Sugere-se usar pads quadrados nos conectores para aumentar a área de cobre pós furo.
+    
+    - Criar dois furos simétricos no eixo x para alinhamento. ToDo: diâmetro do furo?
+    
+    
+    
 ## Refs:
 
 - Hardware: https://blog.protoneer.co.nz/wp-content/uploads/2013/07/Arduino-CNC-Shield-Schematics.png
