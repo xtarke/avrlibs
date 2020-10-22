@@ -92,9 +92,9 @@ $132 = 200.000    (z max travel, mm)
 |------------|-------------|
 | Clearance  | 12mils      |
 | Track W    | 20 a 30mils |
-| Via Dia    | 1.5mm       |
+| Via Dia    | 1.8mm       |
 | Via Drill  | 0.6mm       |
-| uVia Drill | 1.5mm       |
+| uVia Drill | 1.8mm       |
 | uVia Drill | 0.6mm       |
 
 - Cuidado com conectores. Sugere-se aumentar a área dos pads com furo de 1mm para 2x2mm para aumentar a área de cobre pós furo. __Para alterar todos: Clique direito, pads, Push pad proprieties__

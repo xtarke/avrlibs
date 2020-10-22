@@ -99,6 +99,9 @@ uint8_t is_rx_complete(){
 	return uart_state.rx_complete;
 }
 
+uint8_t is_tx_complete(){
+	return !uart_state.tx_count;
+}
 
 ISR(USART_RX_vect){
 	/* Get data from hardware */
