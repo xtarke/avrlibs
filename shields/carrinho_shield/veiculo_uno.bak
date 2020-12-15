@@ -748,13 +748,13 @@ Wire Wire Line
 $Comp
 L Connector_Generic:Conn_02x13_Odd_Even J7
 U 1 1 5EE18C86
-P 1800 2350
-F 0 "J7" H 1850 3167 50  0000 C CNN
-F 1 "Conn_02x13_Odd_Even" H 1850 3076 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_2x13_P2.54mm_Vertical" H 1800 2350 50  0001 C CNN
-F 3 "~" H 1800 2350 50  0001 C CNN
-	1    1800 2350
-	1    0    0    -1  
+P 1900 2350
+F 0 "J7" H 1950 3167 50  0000 C CNN
+F 1 "Conn_02x13_Odd_Even" H 1950 3076 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x13_P2.54mm_Vertical" H 1900 2350 50  0001 C CNN
+F 3 "~" H 1900 2350 50  0001 C CNN
+	1    1900 2350
+	-1   0    0    -1  
 $EndComp
 Text GLabel 2550 1750 2    50   Input ~ 0
 D0
@@ -1306,17 +1306,6 @@ F 3 "" H 1400 1650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Conn_01x02_Male J22
-U 1 1 5F9466A6
-P 3550 1950
-F 0 "J22" V 3703 1763 50  0000 R CNN
-F 1 "Conn_01x02_Male" V 3612 1763 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 3550 1950 50  0001 C CNN
-F 3 "~" H 3550 1950 50  0001 C CNN
-	1    3550 1950
-	0    -1   -1   0   
-$EndComp
-$Comp
 L power:+5VP #PWR015
 U 1 1 5F9467DA
 P 2950 1500
@@ -1338,16 +1327,6 @@ F 3 "" H 3800 1650 50  0000 C CNN
 	1    3800 1650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3550 1750 3550 1650
-Wire Wire Line
-	3550 1650 3400 1650
-Wire Wire Line
-	3650 1750 3650 1650
-Wire Wire Line
-	3650 1650 3800 1650
-Text Notes 3400 2100 0    50   ~ 0
-Power Jumper
 $Comp
 L Device:D_Schottky D2
 U 1 1 5F967836
@@ -1363,4 +1342,6 @@ Wire Wire Line
 	3100 1650 2950 1650
 Wire Wire Line
 	2950 1650 2950 1500
+Wire Wire Line
+	3400 1650 3800 1650
 $EndSCHEMATC

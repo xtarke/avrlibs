@@ -748,13 +748,13 @@ Wire Wire Line
 $Comp
 L Connector_Generic:Conn_02x13_Odd_Even J7
 U 1 1 5EE18C86
-P 1800 2350
-F 0 "J7" H 1850 3167 50  0000 C CNN
-F 1 "Conn_02x13_Odd_Even" H 1850 3076 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_2x13_P2.54mm_Vertical" H 1800 2350 50  0001 C CNN
-F 3 "~" H 1800 2350 50  0001 C CNN
-	1    1800 2350
-	1    0    0    -1  
+P 1900 2350
+F 0 "J7" H 1950 3167 50  0000 C CNN
+F 1 "Conn_02x13_Odd_Even" H 1950 3076 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x13_P2.54mm_Vertical" H 1900 2350 50  0001 C CNN
+F 3 "~" H 1900 2350 50  0001 C CNN
+	1    1900 2350
+	-1   0    0    -1  
 $EndComp
 Text GLabel 2550 1750 2    50   Input ~ 0
 D0

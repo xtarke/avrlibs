@@ -28,8 +28,8 @@ volatile uint8_t cmd = 0;
 int main(){
 
 	char data[8] = {0};
-	char *msg = "OK";
 
+	/* Port init */
 	GPIO_D->DDR = 0xff;
 	GPIO_B->DDR = 0xff;
 
@@ -77,7 +77,7 @@ int main(){
 		if (cmd == 'L'){
 			GPIO_ClrBit(MOTOR_PORT_D,PWM1N);
 			GPIO_ClrBit(MOTOR_PORT_B,PWM2);
-			GPIO_ClrBit(MOTOR_PORT_D,PWM2N);
+			GPIO_SetBit(MOTOR_PORT_D,PWM2N);
 
 			GPIO_SetBit(MOTOR_PORT_D,PWM1);
 
@@ -88,7 +88,7 @@ int main(){
 		if (cmd == 'R'){
 			GPIO_ClrBit(MOTOR_PORT_D,PWM1);
 			GPIO_ClrBit(MOTOR_PORT_D,PWM2N);
-			GPIO_ClrBit(MOTOR_PORT_D,PWM1N);
+			GPIO_SetBit(MOTOR_PORT_D,PWM1N);
 
 			GPIO_SetBit(MOTOR_PORT_B,PWM2);
 
